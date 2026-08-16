@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,79 +9,125 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
+
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            direction: rtl;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+
+        .main-content {
             flex: 1;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #111;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-        .product-img-wrap {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: #f9f9f9;
         }
-        .product-img-wrap img {
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .product-info {
-            padding: 15px;
+
+        .product-details {
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            flex: 1;
+            justify-content: space-between;
         }
+
+        .product-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .product-details p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
         .product-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
+
         .price {
+            font-size: 1.2rem;
             font-weight: bold;
             color: #e53935;
         }
-        .btn-custom {
+
+        .order-btn {
             background-color: #e53935;
             color: white;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(229, 57, 53, 0.3);
         }
-        /* تصميم أزرار التنقل في الأسفل */
+
+        .order-btn:hover {
+            background-color: #c62828;
+        }
+
+        /* تنسيق أزرار التنقل في الأسفل */
         .pagination-nav {
             display: flex;
             justify-content: center;
@@ -89,18 +135,20 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-            margin-top: 40px;
+            margin-top: auto;
         }
+
         .page-btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: 1px solid #ccc;
             background-color: #fff;
             color: #333;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: bold;
             transition: 0.2s;
         }
+
         .page-btn.active, .page-btn:hover {
             background-color: #e53935;
             color: white;
@@ -110,28 +158,58 @@
 </head>
 <body>
 
-    <div class="container" id="products">
-        <h2 class="section-title">Our Products - Page 3</h2>
+    <div class="main-content">
+        <h2 class="section-title">Our Products (Page 3)</h2>
         
-        <div class="products-grid">
-            <!-- Product 1 -->
+        <div class="products-container">
+            <!-- المنتج الأول -->
             <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="" alt="Product 0">
+                <div class="product-image">
+                    <img src="" alt="Product 3.1">
                 </div>
-                <div class="product-info">
-                    <h3>Product 0</h3>
+                <div class="product-details">
+                    <h3>Product 3.1</h3>
                     <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
                     <div class="product-footer">
                         <span class="price">0 DT</span>
-                        <button class="btn-custom">Order Now</button>
+                        <button class="order-btn" onclick="openModal('Product 3.1', '0 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المنتج الثاني -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="" alt="Product 3.2">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.2</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">0 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.2', '0 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- المنتج الثالث -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="" alt="Product 3.3">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.3</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">0 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.3', '0 DT')">Order Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- الأزرار الثلاثة للتنقل في الأسفل -->
+    <!-- أزرار التنقل -->
     <div class="pagination-nav">
         <a href="index.html" class="page-btn">1</a>
         <a href="page2.html" class="page-btn">2</a>
