@@ -220,19 +220,12 @@
     <div class="container">
         <h2 class="section-title">Our Products (Page 2)</h2>
         
-        <!-- Products Grid -->
+         <!-- Products Section Layout -->
+    <div class="container" id="products">
+        <h2 class="section-title">Our Products</h2>
         <div class="products-grid">
-            <div class="product-card">
-                <h3>Product 3.12</h3>
-                <p>High quality custom 3D printed model, optimized for durability and fine details.</p>
-                <button class="btn-custom" onclick="openModal('Product Model 4', '20 TND')">Order Now</button>
-            </div>
-            <div class="product-card">
-                <h3>Product </h3>
-                <p>Engineered with precision using premium PLA and PETG filaments.</p>
-                <button class="btn-custom" onclick="openModal('Product Model 5', '25 TND')">Order Now</button>
-            </div>
-            <!-- Product 4.1 -->
+      
+            <!-- Product 3.12 -->
             <div class="product-card">
                 <div class="product-img-wrap">
                     <img src="29.PNG" alt="Product 3.12">
@@ -242,70 +235,26 @@
                     <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
                     <div class="product-footer">
                         <span class="price">5 DT</span>
-                        <button class="btn-custom" onclick="openModal('Product 3.12', ' 5DT')">Order Now</button>
+                        <button class="btn-custom" onclick="openModal('Product 3.12', ' 5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 0 -->
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="0" alt="Product 0">
+                </div>
+                <div class="product-info">
+                    <h3>Product 0</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">0 DT</span>
+                        <button class="btn-custom" onclick="openModal('Product 0', '0 DT')">Order Now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Pagination (رقم 2 بالأحمر) -->
-        <div class="pagination-container">
-            <a href="index.html">1</a>
-            <span>2</span>
-            <a href="page3.html">3</a>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title" style="margin-bottom: 15px; font-size: 1.2rem;">Get In Touch</h2>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">Connect with us on our official social channels or drop us a message!</p>
-        <div class="social-links">
-            <a href="https://wa.me/qr/JVK563YOB3BNG1" target="_blank" class="social-btn">WhatsApp</a>
-            <a href="https://www.instagram.com/infinityshape3d/" target="_blank" class="social-btn">Instagram</a>
-            <a href="https://www.tiktok.com/@infiniteshape3d" target="_blank" class="social-btn">TikTok</a>
-            <a href="https://www.facebook.com/profile.php?id=61592631527296" target="_blank" class="social-btn">Facebook</a>
-            <a href="mailto:InfiniteShape3D@gmail.com" class="social-btn">Email</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="text-align: center; padding: 25px 20px; border-top: 1px solid var(--border-line);">
-        <p style="color: var(--text-dim); font-size: 0.75rem; margin: 0 auto; display: inline-block; white-space: nowrap;">
-            &copy; 2026 INFINITY SHAPE 3D &bull; All Rights Reserved
-        </p>
-    </footer>
-
-    <!-- Order Modal -->
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 style="margin-bottom: 15px; font-size: 1.2rem;">Confirm Order</h3>
-            <form id="whatsappForm">
-                <div class="form-group">
-                    <label>Selected Product</label>
-                    <input type="text" id="modalProductName" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Price</label>
-                    <input type="text" id="modalProductPrice" readonly>
-                </div>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="clientName" required placeholder="Enter your name...">
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" id="clientPhone" required placeholder="Enter your phone...">
-                </div>
-                <div class="form-group">
-                    <label>Shipping Address</label>
-                    <textarea id="clientAddress" required placeholder="City, Street..."></textarea>
-                </div>
-                <button type="button" class="btn-custom" style="width: 100%; border-radius: 8px; margin-top: 10px;" onclick="sendToWhatsApp()">Send via WhatsApp</button>
-            </form>
-        </div>
-    </div>
 
     <script>
         function openModal(productName, productPrice) {
