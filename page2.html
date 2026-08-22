@@ -1,522 +1,488 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Shape 3D - Page 2</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Shape 3D - Page 2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            direction: ltr;
-        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            direction: ltr;
+        }
 
-        /* Navbar Styling */
-        .navbar {
-            background-color: #212121;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+        .main-content {
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #fff;
-        }
+        .section-title {
+            font-size: 1.8rem;
+            color: #222;
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-        .navbar-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        .products-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
 
-        .navbar-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
 
-        .main-content {
-            flex: 1;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
 
-        .section-title {
-            font-size: 1.8rem;
-            color: #222;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-        .products-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
-        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .product-card {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 320px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 700;
+        }
 
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+        .product-details p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
 
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
 
-        .product-details {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            justify-content: space-between;
-        }
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e53935;
+        }
 
-        .product-details h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #333;
-            font-weight: 700;
-        }
+        .order-btn {
+            background-color: #e53935;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(229, 57, 53, 0.3);
+        }
 
-        .product-details p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
+        .order-btn:hover {
+            background-color: #c62828;
+        }
 
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
+        /* Pagination Navigation Styling */
+        .pagination-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+            margin-top: auto;
+        }
 
-        .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #e53935;
-        }
+        .page-btn {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
 
-        .order-btn {
-            background-color: #e53935;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 5px rgba(229, 57, 53, 0.3);
-        }
-
-        .order-btn:hover {
-            background-color: #c62828;
-        }
-
-        /* Pagination Navigation Styling */
-        .pagination-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
-            margin-top: auto;
-        }
-
-        .page-btn {
-            padding: 8px 16px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            color: #333;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .page-btn.active, .page-btn:hover {
-            background-color: #e53935;
-            color: white;
-            border-color: #e53935;
-        }
-    </style>
+        .page-btn.active, .page-btn:hover {
+            background-color: #e53935;
+            color: white;
+            border-color: #e53935;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navbar with Logo -->
-    <nav class="navbar">
-        <div class="navbar-brand">
-            <!-- استبدل "logo.png" باسم مسار الصورة الخاص بك -->
-            <img src="logo.png" alt="Logo" class="navbar-logo">
-            <span class="navbar-title">Infinity Shape 3D - Page 2</span>
-        </div>
-    </nav>
+    <div class="main-content">
+        <h2 class="section-title">Our Products (Page 2)</h2>
+        
+        <div class="products-container">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="35.jpg" alt="Product 3.12">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.12</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">5 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.12', '5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-    <div class="main-content">
-        <h2 class="section-title">Our Products (Page 2)</h2>
-        
-        <div class="products-container">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="35.jpg" alt="Product 3.12">
-                </div>
-                <div class="product-details">
-                    <h3>Product 3.12</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">5 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 3.12', '5 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="43.jpg" alt="Product 3.13">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.13</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">5 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.13', '5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="43.jpg" alt="Product 3.13">
-                </div>
-                <div class="product-details">
-                    <h3>Product 3.13</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">5 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 3.13', '5 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="31.jpg" alt="Product 3.14">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.14</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">5 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.14', '5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="31.jpg" alt="Product 3.14">
-                </div>
-                <div class="product-details">
-                    <h3>Product 3.14</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">5 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 3.14', '5 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="29.PNG" alt="Product 3.15">
+                </div>
+                <div class="product-details">
+                    <h3>Product 3.15</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">5 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 3.15', '5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="29.PNG" alt="Product 3.15">
-                </div>
-                <div class="product-details">
-                    <h3>Product 3.15</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">5 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 3.15', '5 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="32.jpg" alt="Product 4.0">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.0</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.0', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="32.jpg" alt="Product 4.0">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.0</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.0', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="33.jpg" alt="Product 4.1">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.1</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.1', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="34.jpg" alt="Product 4.3">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.3</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.3', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="33.jpg" alt="Product 4.1">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.1</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.1', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 7 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="34.jpg" alt="Product 4.3">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.3</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.3', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="35.jpg" alt="Product 4.4">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.4</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">10 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.4', '10 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Product 8 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="35.jpg" alt="Product 4.4">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.4</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">10 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.4', '10 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="37.jpg" alt="Product 4.5">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.5</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">15 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.5', '15 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="37.jpg" alt="Product 4.5">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.5</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">15 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.5', '15 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="38.jpg" alt="Product 4.6">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.6</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.6', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="38.jpg" alt="Product 4.6">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.6</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.6', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="39.jpg" alt="Product 4.7">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.7</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.7', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="39.jpg" alt="Product 4.7">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.7</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.7', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="41.jpg" alt="Product 4.8">
+                </div>
+                <div class="product-details">
+                    <h3>Product 4.8</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">8DT</span>
+                        <button class="order-btn" onclick="openModal('Product 4.8', '8 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="41.jpg" alt="Product 4.8">
-                </div>
-                <div class="product-details">
-                    <h3>Product 4.8</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">8DT</span>
-                        <button class="order-btn" onclick="openModal('Product 4.8', '8 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="30.jpg" alt="Product 5.0">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.0</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price"> 5DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.0', '5 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="30.jpg" alt="Product 5.0">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.0</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price"> 5DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.0', '5 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+            
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="36.jpg" alt="Product 5.1">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.1</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">20 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.1', '20 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="36.jpg" alt="Product 5.1">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.1</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">20 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.1', '20 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="40.jpg" alt="Product 5.2">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.2</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">20 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.2', '20 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="40.jpg" alt="Product 5.2">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.2</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">20 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.2', '20 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+             
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="42.jpg" alt="Product 5.3">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.3</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">25 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.3', '25 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="42.jpg" alt="Product 5.3">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.3</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">25 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.3', '25 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+             
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="45.jpg" alt="Product 5.4">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.4</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">20 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.4', '20 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="45.jpg" alt="Product 5.4">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.4</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">20 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.4', '20 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+                    <div class="product-card">
+                <div class="product-image">
+                    <img src="44.jpg" alt="Product 5.5">
+                </div>
+                <div class="product-details">
+                    <h3>Product 5.5</h3>
+                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
+                    <div class="product-footer">
+                        <span class="price">20 DT</span>
+                        <button class="order-btn" onclick="openModal('Product 5.5', '20 DT')">Order Now</button>
+                    </div>
+                </div>
+            </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="44.jpg" alt="Product 5.5">
-                </div>
-                <div class="product-details">
-                    <h3>Product 5.5</h3>
-                    <p>Infinity Shape 3D: Crafting infinite possibilities with high-precision 3D printing.</p>
-                    <div class="product-footer">
-                        <span class="price">20 DT</span>
-                        <button class="order-btn" onclick="openModal('Product 5.5', '20 DT')">Order Now</button>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
-        </div>
-    </div>
+    <!-- Pagination -->
+    <div class="pagination-nav">
+        <a href="index.html" class="page-btn">1</a>
+        <a href="page2.html" class="page-btn active">2</a>
+        <a href="page3.html" class="page-btn">3</a>
+    </div>
 
-    <!-- Pagination -->
-    <div class="pagination-nav">
-        <a href="index.html" class="page-btn">1</a>
-        <a href="page2.html" class="page-btn active">2</a>
-        <a href="page3.html" class="page-btn">3</a>
-    </div>
+    <!-- Modal الخاص بإتمام الطلب -->
+    <div id="orderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:white; padding:30px; border-radius:16px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <h3 style="margin-bottom: 10px; color: #222;">تأكيد الطلب</h3>
+            <p id="modalProductInfo" style="margin-bottom: 20px; color: #666; font-size: 0.95rem;"></p>
+            
+            <form id="orderForm" style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" id="clientName" placeholder="الاسم واللقب" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem;">
+                <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem;">
+                <textarea id="clientAddress" placeholder="عنوان التوصيل الكامل" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem; resize: none; height: 80px;"></textarea>
+                
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+                    <button type="button" onclick="closeModal()" style="padding: 10px 18px; background: #ccc; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">إلغاء</button>
+                    <button type="submit" style="padding: 10px 20px; background: #e53935; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">تأكيد الطلب</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    <!-- Modal الخاص بإتمام الطلب -->
-    <div id="orderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
-        <div style="background:white; padding:30px; border-radius:16px; width:90%; max-width:400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-            <h3 style="margin-bottom: 10px; color: #222;">تأكيد الطلب</h3>
-            <p id="modalProductInfo" style="margin-bottom: 20px; color: #666; font-size: 0.95rem;"></p>
-            
-            <form id="orderForm" style="display: flex; flex-direction: column; gap: 12px;">
-                <input type="text" id="clientName" placeholder="الاسم واللقب" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem;">
-                <input type="tel" id="clientPhone" placeholder="رقم الهاتف" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem;">
-                <textarea id="clientAddress" placeholder="عنوان التوصيل الكامل" required style="padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem; resize: none; height: 80px;"></textarea>
-                
-                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
-                    <button type="button" onclick="closeModal()" style="padding: 10px 18px; background: #ccc; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">إلغاء</button>
-                    <button type="submit" style="padding: 10px 20px; background: #e53935; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">تأكيد الطلب</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <script>
+        let selectedProduct = "";
+        let selectedPrice = "";
 
-    <script>
-        let selectedProduct = "";
-        let selectedPrice = "";
+        function openModal(productName, price) {
+            selectedProduct = productName;
+            selectedPrice = price;
+            document.getElementById('modalProductInfo').innerText = `المنتج: ${productName} | السعر: ${price}`;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
 
-        function openModal(productName, price) {
-            selectedProduct = productName;
-            selectedPrice = price;
-            document.getElementById('modalProductInfo').innerText = `المنتج: ${productName} | السعر: ${price}`;
-            document.getElementById('orderModal').style.display = 'flex';
-        }
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
 
-        function closeModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const address = document.getElementById('clientAddress').value;
 
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('clientName'].value;
-            const phone = document.getElementById('clientPhone').value;
-            const address = document.getElementById('clientAddress').value;
-
-            alert(`شكراً لك يا ${name}! تم تسجيل طلبك لـ ${selectedProduct} بنجاح. سنتصل بك قريباً.`);
-            
-            closeModal();
-            document.getElementById('orderForm').reset();
-        });
-    </script>
+            alert(`شكراً لك يا ${name}! تم تسجيل طلبك لـ ${selectedProduct} بنجاح. سنتصل بك قريباً.`);
+            
+            closeModal();
+            document.getElementById('orderForm').reset();
+        });
+    </script>
 </body>
 </html>
